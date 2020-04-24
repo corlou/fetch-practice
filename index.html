@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <Head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-witdth, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Coding Train: Data/Apis 1</title>
+    </Head>
+    <body>
+        <img src ="" id="rainbow" width="480px"/>
+        <p>API training</p>
+        <script>
+            console.log('about to fetch a rainbow')
+            
+            catchRainbow()
+            
+            .catch(error => {
+                console.error()
+            });
+
+            async function catchRainbow() {
+                const response = await fetch('rainbow.jpg');
+                const blob = await response.blob();
+                document.getElementById('rainbow').src = URL.createObjectURL(blob);
+            }
+
+            // fetch('/rainbow.jpg').then(rawResponse => {
+            //     // looks like server gibberish, until we "parse" it until something usable
+            //     // eg json, image, whatever
+            //     console.log(rawResponse);
+            //     return rawResponse.blob();
+            // }).then(blob => {
+            //     console.log(blob);
+            //     document.getElementById('rainbow').src = URL.createObjectURL(blob);
+            // })
+            // .catch(error => {
+            //     console.error()
+            // });
+        </script>
+    </body>
+
+
+
+</html>
